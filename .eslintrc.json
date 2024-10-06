@@ -1,3 +1,92 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "plugin:@typescript-eslint/strict-type-checked",
+    "plugin:@typescript-eslint/stylistic-type-checked",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+    "plugin:@tanstack/eslint-plugin-query/recommended",
+    "plugin:drizzle/recommended",
+    "prettier"
+  ],
+  "plugins": ["react", "react-hooks", "@tanstack/query", "drizzle"],
+  "rules": {
+    "@typescript-eslint/no-unsafe-return": "off",
+    "@typescript-eslint/no-misused-promises": "off",
+    "@typescript-eslint/require-await": "off",
+    "@typescript-eslint/array-type": "off",
+    "@typescript-eslint/no-floating-promises": "error",
+    "@typescript-eslint/consistent-type-definitions": "off",
+    "@typescript-eslint/no-confusing-void-expression": "off",
+    "react/prefer-stateless-function": "error",
+    "react/button-has-type": "error",
+    "react/no-unused-prop-types": "error",
+    "react/jsx-pascal-case": "error",
+    "react/jsx-no-script-url": "error",
+    "react/no-children-prop": "error",
+    "react/no-danger": "error",
+    "react/no-danger-with-children": "error",
+    "react/no-unstable-nested-components": [
+      "error",
+      {
+        "allowAsProps": true
+      }
+    ],
+    "react/jsx-fragments": "error",
+    "react/destructuring-assignment": ["off"],
+    "react/jsx-no-leaked-render": [
+      "error",
+      { "validStrategies": ["ternary", "coerce"] }
+    ],
+    "react/jsx-max-depth": [
+      "error",
+      {
+        "max": 8
+      }
+    ],
+    "react/function-component-definition": [
+      "warn",
+      {
+        "namedComponents": ["arrow-function", "function-declaration"]
+      }
+    ],
+    "react/jsx-key": [
+      "error",
+      {
+        "checkFragmentShorthand": true,
+        "checkKeyMustBeforeSpread": true,
+        "warnOnDuplicates": true
+      }
+    ],
+    "react/jsx-no-useless-fragment": "warn",
+    "react/jsx-curly-brace-presence": "warn",
+    "react/no-typos": "warn",
+    "react/display-name": "warn",
+    "react/self-closing-comp": "warn",
+    "react/jsx-sort-props": "off",
+    "react/jsx-props-no-spreading": [
+      "error",
+      {
+        "html": "ignore",
+        "exceptions": ["Form", "Input", "Textarea", "NextThemesProvider"]
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/prop-types": "error",
+    "react-hooks/exhaustive-deps": "error"
+  },
+  "overrides": [
+    {
+      // or whatever matches stories specified in .storybook/main.js
+      "files": ["*.stories.@(ts|tsx|js|jsx|mjs|cjs)"],
+      "rules": {}
+    }
+  ]
 }
